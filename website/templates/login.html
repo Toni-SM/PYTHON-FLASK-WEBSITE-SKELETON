@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" href="static/images/favicon.ico">
+	<title>WEBSITE</title>
+	
+	<link rel="stylesheet" type="text/css" href="static/lib/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="static/css/common.css" />
+</head>
+
+<body>
+
+    <!-- navbar -->
+    {% include 'partials/navbar.html' %}
+
+    <!-- messages -->
+    {% include 'partials/messages.html' %}
+
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 col-md-3 col-1">
+            </div>
+            <div class="col-lg-4 col-md-6 col-10">
+                <div class="jumbotron mt-5">
+                    <!-- logo -->
+                    <div class="media">
+                        <img class="align-self-center mr-3 w-25" src="static/images/logo.png" alt="Logo">
+                        <div class="media-body align-self-center">
+                            <h5 class="mt-0"><b>WEBSITE NAME</b></h5>
+                            <p class="mb-0">Lorem ipsum dolor...</p>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- form -->
+                    <p class=""><b>Username</b></p>
+                    <input type="text" class="form-control" id="field-username" placeholder="Username">
+                    <br>
+                    <p class=""><b>Password</b></p>
+                    <input type="password" class="form-control" id="field-password" placeholder="Password">
+                    <br>
+                    <br>
+                    <button id="button-login" type="button" class="btn btn-primary w-100">Log in</button>
+                    <br>
+                    <!-- forgot password or register -->
+                    <p class="mt-2 mb-0"><a href="/forgot_password">forgot password</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/lib/js/jquery-3.3.1.min.js"></script>
+    <script src="static/lib/js/popper.min.js"></script>
+    <script src="static/lib/js/bootstrap.min.js"></script> 
+    
+    <script src="static/js/utils.js"></script>        
+    <script src="static/js/login.js"></script>        
+</body>
+
+
+

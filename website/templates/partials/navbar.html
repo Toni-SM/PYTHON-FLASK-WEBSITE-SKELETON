@@ -1,0 +1,25 @@
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+        <img src="../static/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        <span class="ml-1">Name of the Website</span>
+    </a>
+    
+    {% if current_user.is_authenticated %}
+        <div class="dropdown form-inline">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ current_user.name | capitalize }}
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <span class="dropdown-item-text text-info">Login<span class="text-white">_</span>as<span class="text-white">_</span>{{ current_user.category }}</span>
+                <span class="dropdown-item-text text-info"><b>{{ current_user.email }}</b></span>
+                {% if current_user.category == "administrator" %}
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/accounts">Manage accounts</a>
+                {% endif %}
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/logout">Log out</a>
+            </div>
+        </div>
+    {% endif %}
+    
+</nav>

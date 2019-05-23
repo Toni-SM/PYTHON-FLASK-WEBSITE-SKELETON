@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" href="../static/images/favicon.ico">
+	<title>WEBSITE</title>
+	
+	<link rel="stylesheet" type="text/css" href="../static/lib/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="static/css/common.css" />
+    
+    <style>
+    .button-remove:hover {
+        color: red !important;
+    }
+    </style>
+</head>
+
+<body>
+    
+    <!-- navbar -->
+    {% include 'partials/navbar.html' %}
+    <!-- messages -->
+    {% include 'partials/messages.html' %}
+    
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-1">
+            </div>
+            <div class="col-10">
+                <!-- table (accounts) -->
+                <table class="table table-hover table-responsive-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name and surname</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Category</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for account in accounts %}
+                            <tr>
+                                <td>{{ account.name }}&nbsp;{{ account.surname }}</td>
+                                <td>{{ account.email }}</td>
+                                <td>{{ account.category | capitalize }}</td>
+                                <td>
+                                    <button type="button" class="close button-remove" aria-label="Close" onclick="showModalRemove({'name': '{{ account.name }}', 'surname': '{{ account.surname }}', 'email': '{{ account.email }}', 'category': '{{ account.category | capitalize }}'});">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1">
+            </div>
+            <div class="col-md-10">
+                <button id="button-add-account" type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#modal-add-account">Add an account</button>
+                <br>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modal-add-account" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create an account</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                
+                    <div class="container-fluid">
+                        <!-- form -->
+                        <div class="row">
+                            <div class="col-1">
+                            </div>
+                            <div class="col-md-5">
+                                <p><b>Name <span class="text-danger">*</span></b></p>
+                                <input type="text" class="form-control" id="field-name" placeholder="Name" required>
+                                <br>
+                                <p><b>Surname <span class="text-danger">*</span></b></p>
+                                <input type="text" class="form-control" id="field-surname" placeholder="Surname" required>
+                                <br>
+                                <p><b>Email <span class="text-danger">*</span></b></p>
+                                <input type="email" class="form-control" id="field-email" required>
+                                <p class="font-weight-light mt-1 mb-0"><small>This will be the username of the account.</small></p>
+                                <br>
+                            </div>
+                            <div class="col-md-5">
+                                <p><b>Category <span class="text-danger">*</b></p>
+                                <select class="form-control" id="field-category" >
+                                    <option value=""></option>
+                                    {% for category in categories %}
+                                    <option value="{{ category }}">{{ category | capitalize }}</option>
+                                    {% endfor %}
+                                </select>
+                                <p class="font-weight-light mt-1 mb-0"><small>This will be use for provide a level of access.</small></p>
+                                <br>
+                            </div>
+                        </div>
+                        
+                        <!-- password -->
+                        <div class="row">
+                            <div class="col-1">
+                            </div>
+                            <div class="col-md-5">
+                                <p><b>Password <span class="text-danger">*</b></p>
+                                <input type="password" class="form-control" id="field-password" placeholder="Password" required>
+                                <br>
+                                <p><b>Repeat password <span class="text-danger">*</b></p>
+                                <input type="password" class="form-control" id="field-repeat-password" placeholder="Repeat password" required>
+                                <!-- <br> -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="button-register-account" type="button" class="btn btn-primary">Create the account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modal-remove-account" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Do you want to remove this account?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                
+                    <div class="container-fluid">
+                        <!-- details -->
+                        <div class="row">
+                            <div class="col-1">
+                            </div>
+                            <div class="col-md-10">
+                                <p><b>Name:</b> <span id="modal-remove-account-name"></span></p>
+                                <p><b>Surname:</b> <span id="modal-remove-account-surname"></span></p>
+                                <p><b>Email:</b> <span id="modal-remove-account-email"></span></p>
+                                <p><b>Category:</b> <span id="modal-remove-account-category"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button id="button-remove-account" type="button" class="btn btn-danger">Remove the account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/lib/js/jquery-3.3.1.min.js"></script>
+    <script src="static/lib/js/popper.min.js"></script>
+    <script src="static/lib/js/bootstrap.min.js"></script> 
+
+    <script src="static/js/utils.js"></script> 
+    <script src="static/js/accounts.js"></script> 
+    
+</body>
+
+
+

@@ -1,0 +1,87 @@
+html, body {
+}
+
+body {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+input:invalid, .required {
+}
+
+input:valid {
+}
+
+.form-control:valid {
+}
+
+.form-control {
+}
+
+.alert {
+    position: fixed;
+    z-index: 9999;
+    top: 8.5%;
+    width: 70%;
+    margin-left: 15%;
+    padding: 10px;
+    text-align: center;
+    display: none;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+    .mobile-block { display: block; } 
+    .mobile-inline { display: inline; } 
+    .mobile-flex { display: flex; } 
+    .desktop-block { display: none; } 
+    .desktop-inline { display: none; }
+    .desktop-flex { display: none; }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .mobile-block { display: block; } 
+    .mobile-inline { display: inline; } 
+    .mobile-flex { display: flex; } 
+    .desktop-block { display: none; } 
+    .desktop-inline { display: none; }
+    .desktop-flex { display: none; }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .mobile-block { display: none; } 
+    .mobile-inline { display: none; } 
+    .mobile-flex { display: none; }
+    .desktop-block { display: block; } 
+    .desktop-inline { display: inline; }
+    .desktop-flex { display: flex; }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .mobile-block { display: none; } 
+    .mobile-inline { display: none; } 
+    .mobile-flex { display: none; } 
+    .desktop-block { display: block; } 
+    .desktop-inline { display: inline; }
+    .desktop-flex { display: flex; }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    .mobile-block { display: none; } 
+    .mobile-inline { display: none; } 
+    .mobile-flex { display: none; }
+    .desktop-block { display: block; } 
+    .desktop-inline { display: inline; }
+    .desktop-flex { display: flex; }
+}
