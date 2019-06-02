@@ -1,28 +1,31 @@
 # PYTHON FLASK WEBSITE SKELETON
-Web site skeleton with autentication and accounts creation
+## *Web site skeleton with autentication and accounts creation*
 
- * Running over Flask microframework
- * Database abstraction layer (Flask-SQLAlchemy)
- * User session management (Flask-Login)
+ * Running over Python [Flask](http://github.com) microframework
+ * Database abstraction layer with [Flask-SQLAlchemy](http://github.com)
+ * Automatic creation of the database and its tables (if not exist)
+ * User session management with [Flask-Login](http://github.com)
+ * Account management page for create and remove users
+ * Visual design and implementation of login/logout 
 
 ## Instructions
 
 ### Project dependencies
-Install the necessary libraries from `Python Command Line` 
+Install the necessary dependencies from `Python Command Line` 
 
-```
+```bash
 $ python -m pip install Flask Flask-SQLAlchemy Flask-Login
 ```
 
 or from `pip3` tool
-```
+```bash
 $ pip3 install Flask Flask-SQLAlchemy Flask-Login
 ```
 
 ### Start the development server
-Start the development server and browse to http://0.0.0.0:80
+Start the development server and browse to http://localhost:80
 
-```
+```bash
 $ python run.py
 ```
 
